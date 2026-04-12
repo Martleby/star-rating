@@ -19,21 +19,20 @@
     }"
     >
       
-    <div class="">
-        <div class="flex" @mouseleave="temp = rating">
-            <template x-for="i in stars" :key="i">
-                <button
-                    @click="rating = i" 
-                    @mouseover="temp = i"
-                    :aria-label="'Rate ' + i + ' out of ' + stars" 
-                    class="text-5xl transition-all"
-                    :class="temp >= i ? 'text-yellow-400' : 'text-gray-300'"
-                    >★
-                </button>
-                <input type="hidden" :value="rating">
-            </template>
-      </div>
-    
+    <div class="flex" @mouseleave="temp = rating">
+        <template x-for="i in stars" :key="i">
+            <button
+                @click="rating = i" 
+                @mouseover="temp = i"
+                :aria-label="'Rate ' + i + ' out of ' + stars" 
+                class="text-5xl transition-all"
+                :class="temp >= i ? 'text-yellow-400' : 'text-gray-300'"
+                >★
+            </button>
+            <input type="hidden" :value="rating">
+        </template>
     </div>
+    
+
   </body>
 </html>
