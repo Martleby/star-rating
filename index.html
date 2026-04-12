@@ -25,7 +25,7 @@
                 @click="rating = i" 
                 @mouseover="temp = i"
                 :aria-label="'Rate ' + i + ' out of ' + stars" 
-                class="text-5xl transition-all"
+                class="text-5xl transition-all hover:scale-110"
                 :class="temp >= i ? 'text-yellow-400' : 'text-gray-300'"
                 >★
             </button>
