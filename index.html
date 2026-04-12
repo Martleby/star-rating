@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Star Rating</title>
+  </head>
+  <body class="h-dvh w-full bg-zinc-100 flex justify-center p-8">
+    <div
+      x-data="{
+        stars: 5,
+        temp: 0,
+        rating: 0
+    }"
+    >
+      
+    <div class="">
+        
+        <div class="flex" @mouseleave="temp = rating">
+            <template x-for="i in stars" :key="i">
+                <button
+                    @click="rating = i" 
+                    @mouseover="temp = i"
+                    :aria-label="'Rate ' + i + ' out of ' + stars" 
+                    class="text-5xl transition-all"
+                    :class="temp >= i ? 'text-yellow-400' : 'text-gray-300'"
+                    >★
+                </button>
+                <input type="hidden" :value="rating">
+            </template>
+      </div>
+    
+    </div>
+  </body>
+</html>
