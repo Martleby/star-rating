@@ -21,15 +21,21 @@
       
     <div class="flex" @mouseleave="temp = rating">
         <template x-for="i in stars" :key="i">
-            <button
-                @click="rating = i" 
-                @mouseover="temp = i"
-                :aria-label="'Rate ' + i + ' out of ' + stars" 
-                class="text-5xl transition-all hover:scale-110"
-                :class="temp >= i ? 'text-yellow-400' : 'text-gray-300'"
-                >★
-            </button>
-            <input type="hidden" :value="rating">
+            <div>
+                <button
+                    @click="rating = i" 
+                    @mouseover="temp = i"
+                    :aria-label="'Rate ' + i + ' out of ' + stars" 
+                    class="text-5xl transition-all hover:scale-110"
+                    :class="{
+                        'text-yellow-400': temp >= i,
+                        'text-gray-300': temp < i,
+                        'scale-110': rating == i,
+                    }"
+                    >★
+                </button>
+                <input type="hidden" :value="rating">
+            </div>
         </template>
     </div>
     
